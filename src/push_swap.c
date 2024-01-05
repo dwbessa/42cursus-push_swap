@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/03 17:55:49 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/05 16:46:42 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ int	main(int ac, char **av)
 
 		i = 0;
 		size_list = ac - 1;
-		stack_a = malloc(sizeof(t_stack) * 1);
-		stack_b = malloc(sizeof(t_stack) * 1);
-		stack_a->data = malloc(sizeof(int) * size_list);
-		stack_a->top = size_list - 1;
-		stack_b->data = malloc(sizeof(int) * size_list);
-		while(i < size_list)
+		stack_a = create_stack(av, size_list);
+		stack_b = create_stack(av, 0);
+		i = stack_a->top;
+		ft_printf("Before sorting\n");
+		while (i >= 0)
 		{
-			stack_a->data[size_list] = ft_atoi(av[1]);
-			size_list--;
+			ft_printf("%d - ", stack_a->data[i]);
+			i--;
 		}
-		sort_stack(stack_a, stack_b);
-		i = 0;
-		while (i < stack_a->top)
+		ft_printf("\n\n");
+		use_sort(stack_a, stack_b, size_list);
+		i = stack_a->top;
+		while (i >= 0)
 		{
-			ft_printf("%d\n", stack_a->data[stack_a->top]);
-			stack_a->top--;
+			ft_printf("%d - ", stack_a->data[i]);
+			i--;
 		}
 		free(stack_a);
 		free(stack_b);

@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/05 11:32:37 by dbessa           ###   ########.fr       */
+/*   Created: 2024/01/05 15:03:57 by dbessa            #+#    #+#             */
+/*   Updated: 2024/01/05 16:01:16 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack *stack_a)
+t_stack	*create_stack(char **av, int size)
 {
-	while (stack_a->top >= 0)
+	t_stack	*stack;
+	int		i;
+	int		size_list;
+
+	i = 1;
+	size_list = size - 1;
+	stack = malloc(sizeof(t_stack));
+	stack->top = size - 1;
+	stack->data = malloc(sizeof(int) * size);
+	if (size > 0)
 	{
-		if (stack_a->data[stack_a->top] > stack_a->data[stack_a->top - 1])
-			return (1);
-		stack_a->top--;
+		while (i <= size)
+		{
+			stack->data[size_list] = ft_atoi(av[i]);
+			i++;
+			size_list--;
+		}
 	}
-	return (0);
+	return (stack);
 }

@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:01:22 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/03 17:56:59 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/05 16:51:29 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	sa(t_stack *stack_a)
 {
 	int	temp;
+
 	temp = stack_a->data[stack_a->top];
 	stack_a->data[stack_a->top] = stack_a->data[stack_a->top - 1];
-	stack_a->data[stack_a->top] = temp;
+	stack_a->data[stack_a->top - 1] = temp;
 	ft_printf("sa\n");
 }
 

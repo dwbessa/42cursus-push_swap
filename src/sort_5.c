@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   sort_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/05 11:32:37 by dbessa           ###   ########.fr       */
+/*   Created: 2024/01/05 15:54:14 by dbessa            #+#    #+#             */
+/*   Updated: 2024/01/05 16:31:37 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack *stack_a)
+void	sort_5(t_stack *stack_a, t_stack *stack_b)
 {
-	while (stack_a->top >= 0)
-	{
-		if (stack_a->data[stack_a->top] > stack_a->data[stack_a->top - 1])
-			return (1);
-		stack_a->top--;
-	}
-	return (0);
+	free(stack_a);
+	free(stack_b);
 }
