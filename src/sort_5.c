@@ -6,15 +6,13 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:54:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/05 17:54:21 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/06 11:37:01 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 int	find_low_index(t_stack *stack_a)
-
 {
 	int	min;
 	int	index;
@@ -53,33 +51,32 @@ int	find_lowers(t_stack *stack_a)
 }
 
 void	sort_5(t_stack	*stack_a, t_stack *stack_b)
-
 {
 	int	small;
 	int	i;
 	int	index;
 
-	index = find_low_index(stack_a);
-	while (stack_a->top > 3)
+	while (stack_a->top > 2)
 	{
 		small = find_lowers(stack_a);
+		index = find_low_index(stack_a);
 		i = stack_a->top;
 		i--;
 		if (stack_a->data[stack_a->top] != small)
 		{
 			while (index < stack_a->top)
 			{
-				if (stack_a->data[stack_a->top] == small || index >= 5)
+				if (stack_a->data[stack_a->top] == small || index >= 4)
 					break ;
-				if (index <= 2 && index > 0)
+				if (index >= (stack_a->top - 2) && index < stack_a->top)
 				{
 					ra(stack_a);
-					index--;
+					index++;
 				}
 				else
 				{
 					rra(stack_a);
-					index++;
+					index--;
 				}
 				if (stack_a->data[stack_a->top] == small)
 					break ;
