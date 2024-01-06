@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:42:27 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/06 17:44:45 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/06 18:16:46 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_stack
 }	t_stack;
 
 int				is_sorted(t_stack *stack);
-void 			sort_stack(t_stack *stack_a, t_stack *stack_b);
+void			sort_stack(t_stack *stack_a, t_stack *stack_b);
 t_stack			*create_stack(char **av, int size, int check);
 void			use_sort(t_stack *stack_a, t_stack *stack_b, int size);
 int				split_len(char **av);
@@ -45,7 +45,6 @@ void			rrb(t_stack *stack_b);
 void			ss(t_stack *stack_a, t_stack *stack_b);
 void			rr(t_stack *stack_a, t_stack *stack_b);
 void			rrr(t_stack *stack_a, t_stack *stack_b);
-
 
 //************ sort algorithms
 void			sort_3(t_stack *stack_a);

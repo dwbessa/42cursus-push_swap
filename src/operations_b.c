@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:01:22 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/05 16:52:26 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/06 18:16:06 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	sb(t_stack *stack_b)
 {
 	int	temp;
+
 	temp = stack_b->data[stack_b->top];
 	stack_b->data[stack_b->top] = stack_b->data[stack_b->top - 1];
 	stack_b->data[stack_b->top - 1] = temp;
@@ -39,7 +40,7 @@ void	rb(t_stack *stack_b)
 
 	i = stack_b->top;
 	temp = stack_b->data[stack_b->top];
-	while(i > 0)
+	while (i > 0)
 	{
 		stack_b->data[i] = stack_b->data[i - 1];
 		i--;

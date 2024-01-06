@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:34:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/03 17:57:03 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/06 18:15:55 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	rr(t_stack *stack_a, t_stack *stack_b)
 	rb(stack_b);
 	ft_printf("rr\n");
 }
+
 void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	rra(stack_a);

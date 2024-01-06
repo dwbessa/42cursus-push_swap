@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:01:22 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/05 16:51:29 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/06 18:14:52 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ra(t_stack *stack_a)
 
 	i = stack_a->top;
 	temp = stack_a->data[stack_a->top];
-	while(i > 0)
+	while (i > 0)
 	{
 		stack_a->data[i] = stack_a->data[i - 1];
 		i--;
