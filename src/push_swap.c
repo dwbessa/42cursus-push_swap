@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/05 16:46:42 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/06 18:00:28 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,31 @@
 
 int	main(int ac, char **av)
 {
-	if (ac > 2)
+	if (ac > 1)
 	{
 		t_stack	*stack_a;
 		t_stack	*stack_b;
 		int		size_list;
-		int		i;
+		int		check;
 
-		i = 0;
-		size_list = ac - 1;
-		stack_a = create_stack(av, size_list);
-		stack_b = create_stack(av, 0);
-		i = stack_a->top;
-		ft_printf("Before sorting\n");
-		while (i >= 0)
+		check = 0;
+		if (ac == 1 || (ac == 2 && !av[1][0]))
+			return (1);
+		else if (ac == 2)
+			av = ft_split(av[1], ' ');
+		size_list = split_len(av);
+		// ft_printf("%d %d\n", size_list, check);
+		if (ac > 2)
 		{
-			ft_printf("%d - ", stack_a->data[i]);
-			i--;
+			size_list--;
+			check = 1;
 		}
-		ft_printf("\n\n");
+		// ft_printf("%d %d\n", size_list, check);
+		stack_a = create_stack(av, size_list, check);
+		stack_b = create_stack(av, 0, check);
+		// print_stack(stack_a);
 		use_sort(stack_a, stack_b, size_list);
-		i = stack_a->top;
-		while (i >= 0)
-		{
-			ft_printf("%d - ", stack_a->data[i]);
-			i--;
-		}
+		// print_stack(stack_a);
 		free(stack_a);
 		free(stack_b);
 	}
