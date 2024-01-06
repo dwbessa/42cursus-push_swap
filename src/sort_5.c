@@ -6,13 +6,13 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:54:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/06 18:41:11 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/06 19:05:44 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_low_index(t_stack *stack_a)
+static int	find_low_index(t_stack *stack_a)
 {
 	int	index;
 	int	min;
@@ -30,7 +30,7 @@ int	find_low_index(t_stack *stack_a)
 	return (index);
 }
 
-int	find_lowers(t_stack *stack_a)
+static int	find_lowers(t_stack *stack_a)
 
 {
 	int	min;
@@ -47,7 +47,7 @@ int	find_lowers(t_stack *stack_a)
 	return (min);
 }
 
-void	check_and_sort(t_stack *stack_a, int small, int index)
+static void	check_and_sort(t_stack *stack_a, int small, int index)
 {
 	while (index < stack_a->top)
 	{

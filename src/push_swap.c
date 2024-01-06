@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/06 18:33:27 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/06 19:01:18 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	main(int ac, char **av)
 	{
 		int			size_list;
 		int			check;
-		t_stack		*stack_a;
-		t_stack		*stack_b;
+		t_stack		*stack_x;
+		t_stack		*stack_y;
 
 		check = 0;
 		if (ac == 1 || (ac == 2 && !av[1][0]))
@@ -32,11 +32,11 @@ int	main(int ac, char **av)
 			size_list--;
 			check = 1;
 		}
-		stack_a = create_stack(av, size_list, check);
-		stack_b = create_stack(av, 0, check);
-		use_sort(stack_a, stack_b, size_list);
-		free(stack_a);
-		free(stack_b);
+		stack_x = create_stack(av, size_list, check);
+		stack_y = create_stack(av, 0, check);
+		use_sort(stack_x, stack_y, size_list);
+		free(stack_x);
+		free(stack_y);
 		return (0);
 	}
 	exit(EXIT_FAILURE);
