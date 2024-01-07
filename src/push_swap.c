@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/06 23:28:25 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/07 11:11:28 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,13 @@ int	main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
-	size_list = split_len(av);
-	if (ac > 2)
-	{
-		size_list--;
+	else if (ac > 2)
 		check = 1;
-	}
+	size_list = split_len(av, ac);
+	check_args(av, check);
 	stack_a = create_stack(av, size_list, check);
 	stack_b = create_stack(av, 0, check);
-	use_sort(stack_x, stack_y, size_list);
+	use_sort(stack_a, stack_b, size_list);
 	free(stack_a);
 	free(stack_b);
 	return (0);

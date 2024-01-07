@@ -6,19 +6,21 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:03:57 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/06 18:13:47 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/07 11:09:43 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	split_len(char **av)
+int	split_len(char **av, int ac)
 {
 	int	i;
 
 	i = 0;
 	while (av[i] != NULL)
 		i++;
+	if (ac > 2)
+		i--;
 	return (i);
 }
 

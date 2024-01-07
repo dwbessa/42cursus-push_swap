@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:42:27 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/06 18:16:46 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/07 11:10:12 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int				is_sorted(t_stack *stack);
 void			sort_stack(t_stack *stack_a, t_stack *stack_b);
 t_stack			*create_stack(char **av, int size, int check);
 void			use_sort(t_stack *stack_a, t_stack *stack_b, int size);
-int				split_len(char **av);
+int				split_len(char **av, int ac);
+int				check_args(char **av, int check);
 
 //************ operations a
 void			sa(t_stack *stack_a);
