@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/09 17:52:12 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/12 08:47:32 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,22 @@ int	is_sorted_stack(t_stack *stack_a)
 	return (0);
 }
 
-static int	is_sorted(char **av, int check)
+int	is_sorted(char **av, int check)
 {
 	int	i;
+	int	a;
+	int	b;
 
 	i = check;
-	while (av[i] != NULL)
+	while (av[i + 1] != NULL)
 	{
-		if (av[i] > av[i + 1])
-			return (1);
+		a = ft_atoi(av[i]);
+		b = ft_atoi(av[i + 1]);
+		if (a > b)
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	check_args(char **av, int check)
@@ -42,18 +46,18 @@ int	check_args(char **av, int check)
 	int	i;
 	int	j;
 
-	i = check;
 	if (is_sorted(av, check))
-		exit(EXIT_FAILURE);
+		return (1);
+	i = check;
 	while (av[i] != NULL)
 	{
 		j = 0;
 		while (av[i][j])
 		{
-			if (!ft_isdigit(av[i][j]))
+			if (!ft_isdigit(av[i][j]) && av[i][j] != '-')
 			{
 				ft_printf("Error\n");
-				exit(EXIT_FAILURE);
+				return (1);
 			}
 			j++;
 		}
