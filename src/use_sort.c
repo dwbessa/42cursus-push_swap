@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:49:34 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/06 18:39:23 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/12 08:51:54 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	use_sort(t_stack *stack_a, t_stack *stack_b, int size)
 		sort_3(stack_a);
 	else if (size <= 5)
 		sort_5(stack_a, stack_b);
-	// else if (size == 4 || size > 5)
-	// 	sort_big(stack_a, stack_b);
+	else if (size > 5)
+		sort_big(stack_a, stack_b);
 }
