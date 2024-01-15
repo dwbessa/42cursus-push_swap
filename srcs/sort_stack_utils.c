@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   sort_stack_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:03:57 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/15 17:32:19 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:39:56 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,16 @@ int	is_sorted_stack(t_stack *stack_a)
 		i--;
 	}
 	return (0);
+}
+
+void	use_sort(t_stack *stack_a, t_stack *stack_b, int size)
+{
+	if (size == 2)
+		sa(stack_a);
+	else if (size == 3)
+		sort_3(stack_a);
+	else if (size <= 5)
+		sort_5(stack_a, stack_b);
+	else if (size > 5)
+		sort_big(stack_a, stack_b);
 }
