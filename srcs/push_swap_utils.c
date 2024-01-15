@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/15 09:38:29 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:14:16 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	is_sorted(char **av, int check)
 			return (0);
 		i++;
 	}
+	write(2, "Error\n", 6);
 	return (1);
 }
 
@@ -60,7 +61,10 @@ int	is_repeated(char **av, int check)
 		{
 			b = ft_atoi(av[j]);
 			if (a == b)
+			{
+				write(2, "Error\n", 6);
 				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -83,6 +87,7 @@ int	check_args(char **av, int check)
 		{
 			if (!ft_isdigit(av[i][j]) && av[i][j] != '-')
 			{
+				write(2, "Error\n", 6);
 				return (1);
 			}
 			j++;
@@ -90,8 +95,6 @@ int	check_args(char **av, int check)
 		i++;
 	}
 	if (is_repeated(av, check) == 0)
-	{
 		return (1);
-	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/15 09:38:49 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:14:35 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ int	main(int ac, char **av)
 		check = 1;
 	size_list = split_len(av, ac);
 	if (check_args(av, check) == 1)
-	{
-		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
-	}
 	stack_a = create_stack(av, size_list, check);
 	stack_b = create_stack(av, 0, check);
 	use_sort(stack_a, stack_b, size_list);
