@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:03:57 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/07 11:09:43 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:32:19 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,18 @@ t_stack	*create_stack(char **av, int size, int check)
 		}
 	}
 	return (stack);
+}
+
+int	is_sorted_stack(t_stack *stack_a)
+{
+	int	i;
+
+	i = stack_a->top;
+	while (i >= 0)
+	{
+		if (stack_a->data[i] > stack_a->data[i - 1])
+			return (1);
+		i--;
+	}
+	return (0);
 }
