@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:42:27 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/09 17:51:06 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/12 19:28:36 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,6 @@ void			rrr(t_stack *stack_a, t_stack *stack_b);
 //************ sort algorithms
 void			sort_3(t_stack *stack_a);
 void			sort_5(t_stack *stack_a, t_stack *stack_b);
-
-//*********** exclude
-
-void			print_stack(t_stack *stack_a);
+void			sort_big(t_stack *stack_a, t_stack *stack_b);
 
 #endif

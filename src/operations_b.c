@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:01:22 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/06 18:16:06 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/12 16:35:58 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	pb(t_stack *stack_b, t_stack *stack_a)
 	if (stack_a->top >= 0)
 	{
 		stack_b->top++;
-		stack_b[stack_b->top] = stack_a[stack_a->top];
+		stack_b->data[stack_b->top] = stack_a->data[stack_a->top];
 		stack_a->top--;
 	}
 	ft_printf("pb\n");
@@ -39,7 +39,7 @@ void	rb(t_stack *stack_b)
 	int	i;
 
 	i = stack_b->top;
-	temp = stack_b->data[stack_b->top];
+	temp = stack_b->data[i];
 	while (i > 0)
 	{
 		stack_b->data[i] = stack_b->data[i - 1];

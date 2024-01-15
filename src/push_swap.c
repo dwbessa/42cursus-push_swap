@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/12 08:47:39 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/12 18:59:21 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int	main(int ac, char **av)
 
 	check = 0;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
+	{
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
+	}
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
 	else if (ac > 2)
