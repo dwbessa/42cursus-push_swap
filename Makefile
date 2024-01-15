@@ -1,6 +1,6 @@
 NAME	=	push_swap
 LIBFT	=	libft/libft.a
-SRCS	=	src/*.c
+SRCS	=	srcs/*.c
 
 all: $(NAME) 
 
