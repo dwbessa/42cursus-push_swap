@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:20:59 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/15 15:18:52 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:35:36 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_list
 **                              FUNCTION PROTOTYPES
 */
 
-// Part 1 - Libc functions
+//Part 1 - Libc functions
 
 int				ft_isascii(int c);
 int				ft_isprint(int c);
@@ -59,7 +59,6 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *nptr);
-long			ft_atol(const char *nptr);
 
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
@@ -98,6 +97,8 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
-// Personal functions
+
+//Personal functions
+long			ft_atol(const char *nptr);
 
 #endif
