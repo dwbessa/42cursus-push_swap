@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/15 10:14:16 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/15 16:25:11 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ int	is_sorted_stack(t_stack *stack_a)
 
 int	is_sorted(char **av, int check)
 {
-	int	i;
-	int	a;
-	int	b;
+	int		i;
+	int		a;
+	int		b;
+	long	c;
 
 	i = check;
+	c = ft_atol(av[0]);
 	while (av[i + 1] != NULL)
 	{
 		a = ft_atoi(av[i]);
@@ -41,6 +43,8 @@ int	is_sorted(char **av, int check)
 			return (0);
 		i++;
 	}
+	if (av[1] == NULL && (c >= INT_MIN && c <= INT_MAX))
+		return (1);
 	write(2, "Error\n", 6);
 	return (1);
 }
@@ -63,29 +67,31 @@ int	is_repeated(char **av, int check)
 			if (a == b)
 			{
 				write(2, "Error\n", 6);
-				return (0);
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
-int	check_args(char **av, int check)
+int	check_digits(char **av, int check)
 {
 	int	i;
 	int	j;
-
-	if (is_sorted(av, check))
-		return (1);
+	int	count;
+	
 	i = check;
 	while (av[i] != NULL)
 	{
 		j = 0;
+		count = 0;
 		while (av[i][j])
 		{
-			if (!ft_isdigit(av[i][j]) && av[i][j] != '-')
+			if (av[i][j] == '-' || av[i][j] == '+')
+				count++;
+			if (!ft_isdigit(av[i][j]) && (av[i][j] != '-' || av[i][j] == '+' || count > 1))
 			{
 				write(2, "Error\n", 6);
 				return (1);
@@ -94,7 +100,37 @@ int	check_args(char **av, int check)
 		}
 		i++;
 	}
-	if (is_repeated(av, check) == 0)
+	return (0);
+}
+
+int	is_integer(char **av, int check)
+{
+	int		i;
+	long	a;
+
+	i = check;
+	while (av[i] != NULL)
+	{
+		a = ft_atol(av[i]);
+		if (a < INT_MIN || a > INT_MAX)
+		{
+			write(2, "Error\n", 6);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	check_args(char **av, int check)
+{
+	if (check_digits(av, check) == 1)
+		return (1);
+	if (is_sorted(av, check) == 1)
+		return (1);
+	if (is_integer(av, check) == 1)
+		return (1);
+	if (is_repeated(av, check) == 1)
 		return (1);
 	return (0);
 }
