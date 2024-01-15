@@ -6,34 +6,11 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/15 17:32:47 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/15 19:00:30 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_sorted(char **av, int check)
-{
-	int		i;
-	int		a;
-	int		b;
-	long	c;
-
-	i = check;
-	c = ft_atol(av[0]);
-	while (av[i + 1] != NULL)
-	{
-		a = ft_atoi(av[i]);
-		b = ft_atoi(av[i + 1]);
-		if (a > b)
-			return (0);
-		i++;
-	}
-	if (av[1] == NULL && (c >= INT_MIN && c <= INT_MAX))
-		return (1);
-	write(2, "Error\n", 6);
-	return (1);
-}
 
 int	is_repeated(char **av, int check)
 {
@@ -60,6 +37,32 @@ int	is_repeated(char **av, int check)
 		i++;
 	}
 	return (0);
+}
+
+
+int	is_sorted(char **av, int check)
+{
+	int		i;
+	int		a;
+	int		b;
+	long	c;
+
+	i = check;
+	c = ft_atol(av[check]);
+	while (av[i + 1] != NULL)
+	{
+		a = ft_atoi(av[i]);
+		b = ft_atoi(av[i + 1]);
+		if (a > b)
+			return (0);
+		i++;
+	}
+	if ((av[check + 1] == NULL && (c >= INT_MIN && c <= INT_MAX)) || \
+			is_repeated(av, check) == 1)
+		return (1);
+	else if (c < INT_MIN || c > INT_MAX)
+		write(2, "Error\n", 6);
+	return (1);
 }
 
 int	check_digits(char **av, int check)
