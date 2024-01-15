@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/12 18:42:48 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/15 09:38:29 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,30 @@ int	is_sorted(char **av, int check)
 	return (1);
 }
 
+int	is_repeated(char **av, int check)
+{
+	int	i;
+	int	j;
+	int	a;
+	int	b;
+
+	i = check;
+	while (av[i] != NULL)
+	{
+		j = i + 1;
+		a = ft_atoi(av[i]);
+		while (av[j] != NULL)
+		{
+			b = ft_atoi(av[j]);
+			if (a == b)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 int	check_args(char **av, int check)
 {
 	int	i;
@@ -59,12 +83,15 @@ int	check_args(char **av, int check)
 		{
 			if (!ft_isdigit(av[i][j]) && av[i][j] != '-')
 			{
-				ft_printf("Error\n");
 				return (1);
 			}
 			j++;
 		}
 		i++;
+	}
+	if (is_repeated(av, check) == 0)
+	{
+		return (1);
 	}
 	return (0);
 }
