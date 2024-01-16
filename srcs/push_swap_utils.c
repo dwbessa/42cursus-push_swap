@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/16 10:04:51 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/16 10:29:23 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,33 +66,28 @@ int	is_sorted(char **av, int check)
 
 int	check_digits(char **av, int check)
 {
-	int	i;
 	int	j;
 	int	count;
 
-	i = check;
-	while (av[i] != NULL)
+	while (av[check] != NULL)
 	{
 		j = 0;
 		count = 0;
-		if (ft_strncmp(av[i], "-", 20) == 0 || ft_strncmp(av[i], "+", 20) == 0)
-		{
-			write(2, "Error\n", 6);
+		if (array_is_sign(av[check]) == 1)
 			return (1);
-		}
-		while (av[i][j])
+		while (av[check][j])
 		{
-			if (av[i][j] == '-' || av[i][j] == '+')
+			if (av[check][j] == '-' || av[check][j] == '+')
 				count++;
-			if (!ft_isdigit(av[i][j]) && (av[i][j] != '-' || av[i][j] == '+' || \
-				count > 1))
+			if (!ft_isdigit(av[check][j]) && (av[check][j] != '-' || \
+				av[check][j] == '+' || count > 1))
 			{
 				write(2, "Error\n", 6);
 				return (1);
 			}
 			j++;
 		}
-		i++;
+		check++;
 	}
 	return (0);
 }

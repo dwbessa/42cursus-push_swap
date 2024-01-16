@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:03:57 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/15 17:39:56 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/16 10:29:19 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,14 @@ void	use_sort(t_stack *stack_a, t_stack *stack_b, int size)
 		sort_5(stack_a, stack_b);
 	else if (size > 5)
 		sort_big(stack_a, stack_b);
+}
+
+int	array_is_sign(char *string)
+{
+	if (ft_strncmp(string, "-", 20) == 0 || ft_strncmp(string, "+", 20) == 0)
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	return (0);
 }
