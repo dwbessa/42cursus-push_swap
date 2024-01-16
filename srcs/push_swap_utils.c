@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/16 10:29:23 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/16 11:56:50 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,15 @@ int	is_sorted(char **av, int check)
 	c = ft_atol(av[check]);
 	while (av[i + 1] != NULL)
 	{
-		a = ft_atoi(av[i]);
-		b = ft_atoi(av[i + 1]);
+		a = ft_atol(av[i]);
+		b = ft_atol(av[i + 1]);
 		if (a > b)
 			return (0);
+		else if (a == b)
+			return(is_repeated(av, check));
 		i++;
 	}
-	if ((av[check + 1] == NULL && (c >= INT_MIN && c <= INT_MAX)) || \
-			is_repeated(av, check) == 1)
+	if (av[check + 1] == NULL && (c >= INT_MIN && c <= INT_MAX))
 		return (1);
 	else if (c < INT_MIN || c > INT_MAX)
 		write(2, "Error\n", 6);
@@ -123,9 +124,9 @@ int	check_args(char **av, int check, int size_list)
 	}
 	if (check_digits(av, check) == 1)
 		return (1);
-	if (is_sorted(av, check) == 1)
-		return (1);
 	if (is_integer(av, check) == 1)
+		return (1);
+	if (is_sorted(av, check) == 1)
 		return (1);
 	if (is_repeated(av, check) == 1)
 		return (1);
