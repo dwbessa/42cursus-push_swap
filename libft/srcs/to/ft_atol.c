@@ -6,11 +6,24 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 12:27:34 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/15 11:33:34 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/16 10:45:20 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static long	handle_overflow(long res, char nptr, long sign)
+{
+	if (res > LONG_MAX / 10 || (res == LONG_MAX / 10 && nptr - '0' > \
+		LONG_MAX % 10))
+	{
+		if (sign == 1)
+			return (LONG_MAX);
+		else
+			return (LONG_MIN);
+	}
+	return (0);
+}
 
 long	ft_atol(const char *nptr)
 {
@@ -33,13 +46,8 @@ long	ft_atol(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		if (res > LONG_MAX / 10 || (res == LONG_MAX / 10 && nptr[i] - '0' > LONG_MAX % 10))
-		{
-			if (sign == 1)
-				return LONG_MAX;
-			else
-				return LONG_MIN;
-		}
+		if (handle_overflow(res, nptr[i], sign) != 0)
+			return (handle_overflow(res, nptr[i], sign));
 		res = (res * 10) + (nptr[i++] - '0');
 	}
 	return (res * sign);
