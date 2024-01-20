@@ -6,13 +6,25 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/20 13:31:28 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/20 15:10:53 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	count_words(const char *str, char c)
+static int	check_all(int ac, char **av, int check, int size_list)
+{
+	if (ac == 2 && check_args(av, check, size_list) == 1)
+	{
+		free_split(av);
+		return (1);
+	}
+	else if (check_args(av, check, size_list) == 1)
+		return (1);
+	return (0);
+}
+
+static int	count_args(const char *str, char c)
 {
 	int	i;
 	int	trigger;
@@ -41,7 +53,7 @@ int	main(int ac, char **av)
 	t_stack	*stack_b;
 
 	check = 0;
-	if (ac == 1 || (ac == 2 && count_words(av[1], ' ') == 1))
+	if (ac == 1 || (ac == 2 && count_args(av[1], ' ') == 1))
 	{
 		check_args(av + 1, check, 1);
 		return (0);
@@ -51,7 +63,7 @@ int	main(int ac, char **av)
 	else if (ac > 2)
 		check = 1;
 	size_list = split_len(av, ac);
-	if (check_args(av, check, size_list) == 1)
+	if (check_all(int ac, char **av, int check, int size_list) == 1)
 		return (0);
 	stack_a = create_stack(av, size_list, check, 1);
 	stack_b = create_stack(av, size_list, check, 0);

@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 12:22:05 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/20 13:31:43 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/20 15:04:30 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	free_stack(t_stack *stack_a, t_stack *stack_b, char **av, int ac)
 	i = 0;
 	if (ac == 2)
 	{
-		while (av[i])
+		while (av[i] != NULL)
 			free(av[i++]);
 		free(av);
 	}
@@ -34,6 +34,7 @@ void	free_split(char **av)
 	int	i;
 
 	i = 0;
-	while (av[i])
+	while (av[i] != NULL)
 		free(av[i++]);
+	free(av);
 }
