@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:41:42 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/20 11:50:34 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/20 13:33:41 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,19 @@ void	insert_index(t_stack *stack_a)
 	ft_memcpy(stack_c->data, stack_a->data, (sizeof(int) * (stack_a->top + 1)));
 	stack_c->top = stack_a->top;
 	bubble_sort(stack_c);
-	i = stack_a->top;
-	while (i > -1)
+	i = stack_a->top + 1;
+	while (--i > -1)
 	{
 		j = stack_a->top;
 		while (j > -1)
 		{
 			if (stack_a->data[i] == stack_c->data[j])
 			{
-				stack_a->data[i] = j;
-				j--;
+				stack_a->data[i] = j--;
 				break ;
 			}
 			j--;
 		}
-		i--;
 	}
 	free(stack_c->data);
 	free(stack_c);

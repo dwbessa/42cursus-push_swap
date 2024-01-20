@@ -6,11 +6,32 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/20 09:06:56 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/20 13:31:28 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	count_words(const char *str, char c)
+{
+	int	i;
+	int	trigger;
+
+	i = 0;
+	trigger = 0;
+	while (*str)
+	{
+		if (*str != c && trigger == 0)
+		{
+			trigger = 1;
+			i++;
+		}
+		else if (*str == c)
+			trigger = 0;
+		str++;
+	}
+	return (i);
+}
 
 int	main(int ac, char **av)
 {
@@ -20,8 +41,11 @@ int	main(int ac, char **av)
 	t_stack	*stack_b;
 
 	check = 0;
-	if (ac == 1)
+	if (ac == 1 || (ac == 2 && count_words(av[1], ' ') == 1))
+	{
+		check_args(av + 1, check, 1);
 		return (0);
+	}
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
 	else if (ac > 2)
@@ -32,9 +56,6 @@ int	main(int ac, char **av)
 	stack_a = create_stack(av, size_list, check, 1);
 	stack_b = create_stack(av, size_list, check, 0);
 	use_sort(stack_a, stack_b, size_list);
-	free(stack_a->data);
-	free(stack_b->data);
-	free(stack_a);
-	free(stack_b);
+	free_stack(stack_a, stack_b, av, ac);
 	return (0);
 }

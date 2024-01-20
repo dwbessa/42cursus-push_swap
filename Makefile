@@ -8,7 +8,7 @@ $(LIBFT):
 	$(MAKE) -C libft/
 
 $(NAME): $(LIBFT)
-	cc -Wall -Wextra -Werror -I includes/ $(SRCS) $(LIBFT) -o $(NAME)
+	cc -g -Wall -Wextra -Werror -I includes/ $(SRCS) $(LIBFT) -o $(NAME)
 
 clean:
 	@$(MAKE) fclean -C ./libft
