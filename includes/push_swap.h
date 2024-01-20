@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:42:27 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/16 10:29:52 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/20 09:20:35 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 
 int				is_sorted_stack(t_stack *stack);
 void			sort_stack(t_stack *stack_a, t_stack *stack_b);
-t_stack			*create_stack(char **av, int size, int check);
+t_stack			*create_stack(char **av, int size_list, int check, int is_aux);
 void			use_sort(t_stack *stack_a, t_stack *stack_b, int size);
 int				split_len(char **av, int ac);
 int				check_args(char **av, int check, int size_list);

@@ -6,35 +6,35 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:41:42 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/18 12:38:44 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/20 11:50:34 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stack	*bubble_sort(t_stack *stack)
+static t_stack	*bubble_sort(t_stack *stack_c)
 {
 	int	i;
 	int	j;
 	int	swap;
 
-	i = stack->top;
+	i = stack_c->top;
 	while (i > 0)
 	{
-		j = stack->top;
+		j = stack_c->top;
 		while (j > 0)
 		{
-			if (stack->data[j] > stack->data[j - 1])
+			if (stack_c->data[j] > stack_c->data[j - 1])
 			{
-				swap = stack->data[j];
-				stack->data[j] = stack->data[j - 1];
-				stack->data[j - 1] = swap;
+				swap = stack_c->data[j];
+				stack_c->data[j] = stack_c->data[j - 1];
+				stack_c->data[j - 1] = swap;
 			}
 			j--;
 		}
 		i--;
 	}
-	return (stack);
+	return (stack_c);
 }
 
 void	insert_index(t_stack *stack_a)
@@ -44,7 +44,7 @@ void	insert_index(t_stack *stack_a)
 	int		j;
 
 	stack_c = malloc(sizeof(t_stack));
-	stack_c->data = malloc(sizeof(int) * stack_a->top);
+	stack_c->data = malloc(sizeof(int) * (stack_a->top + 1));
 	ft_memcpy(stack_c->data, stack_a->data, (sizeof(int) * (stack_a->top + 1)));
 	stack_c->top = stack_a->top;
 	bubble_sort(stack_c);
@@ -64,6 +64,8 @@ void	insert_index(t_stack *stack_a)
 		}
 		i--;
 	}
+	free(stack_c->data);
+	free(stack_c);
 }
 
 int	calculate_num_bits(int num)
@@ -106,7 +108,7 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b)
 	max_num = find_max(stack_a);
 	num_bits = calculate_num_bits(max_num);
 	bit_position = 0;
-	while (is_sorted_stack(stack_a) && bit_position < num_bits)
+	while (bit_position < num_bits)
 	{
 		i = stack_a->top;
 		while (i-- >= 0)
@@ -118,6 +120,8 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b)
 		}
 		while (stack_b->top >= 0)
 			pa(stack_a, stack_b);
+		if (is_sorted_stack(stack_a) == 0)
+			return ;
 		bit_position++;
 	}
 }

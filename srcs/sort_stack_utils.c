@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:03:57 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/16 10:29:19 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/20 09:30:14 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,26 @@ int	split_len(char **av, int ac)
 	return (i);
 }
 
-t_stack	*create_stack(char **av, int size, int check)
+t_stack	*create_stack(char **av, int size_list, int check, int is_aux)
 {
 	t_stack	*stack;
 	int		i;
-	int		size_list;
+	int		size_index;
 
 	i = check;
-	size_list = size - 1;
+	size_index = size_list - 1;
 	stack = malloc(sizeof(t_stack));
-	stack->top = size - 1;
-	stack->data = malloc(sizeof(int) * size);
-	if (size > 0)
+	stack->top = size_index;
+	stack->data = malloc(sizeof(int) * size_list);
+	if (is_aux == 1)
 	{
-		while (i <= size && check == 1)
-		{
-			stack->data[size_list] = ft_atoi(av[i]);
-			i++;
-			size_list--;
-		}
-		while (i < size && check == 0)
-		{
-			stack->data[size_list] = ft_atoi(av[i]);
-			i++;
-			size_list--;
-		}
+		while (size_index >= 0 && check == 1)
+			stack->data[size_index--] = ft_atoi(av[i++]);
+		while (size_index >= 0 && check == 0)
+			stack->data[size_index--] = ft_atoi(av[i++]);
 	}
+	else
+		stack->top = -1;
 	return (stack);
 }
 
