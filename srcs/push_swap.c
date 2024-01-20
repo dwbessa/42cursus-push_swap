@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/20 15:10:53 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/20 15:15:12 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	main(int ac, char **av)
 	else if (ac > 2)
 		check = 1;
 	size_list = split_len(av, ac);
-	if (check_all(int ac, char **av, int check, int size_list) == 1)
+	if (check_all(ac, av, check, size_list) == 1)
 		return (0);
 	stack_a = create_stack(av, size_list, check, 1);
 	stack_b = create_stack(av, size_list, check, 0);
