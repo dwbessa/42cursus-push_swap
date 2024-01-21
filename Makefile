@@ -1,20 +1,30 @@
 NAME	=	push_swap
 LIBFT	=	libft/libft.a
-SRCS	=	srcs/*.c
+SRCS	=	$(wildcard srcs/*.c)
+OBJS	=	$(patsubst srcs/%.c, objs/%.o, $(SRCS))
 
 all: $(NAME) 
 
 $(LIBFT):
 	@$(MAKE) -s -C libft/ > /dev/null
 
-$(NAME): $(LIBFT)
-	@cc -Wall -Wextra -Werror -I includes/ $(SRCS) $(LIBFT) -o $(NAME)
+objs:
+	@mkdir -p objs
+
+$(OBJS): objs/%.o: srcs/%.c | objs
+	@cc -Wall -Wextra -Werror -I includes/ -c $< -o $@
+
+$(NAME): $(LIBFT) $(OBJS)
+	@cc -Wall -Wextra -Werror -I includes/ $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
-	@$(MAKE) fclean -C ./libft > /dev/null
-	@rm -rf $(NAME)
+	@$(MAKE) clean -C ./libft > /dev/null
+	@rm -f $(OBJS)
+	@rm -rf objs
 
 fclean: clean
+	@$(MAKE) fclean -C ./libft > /dev/null
+	@rm -f $(NAME)
 
 re: fclean all
 
