@@ -5,13 +5,13 @@ SRCS	=	srcs/*.c
 all: $(NAME) 
 
 $(LIBFT):
-	$(MAKE) -C libft/
+	@$(MAKE) -s -C libft/ > /dev/null
 
 $(NAME): $(LIBFT)
-	cc -g -Wall -Wextra -Werror -I includes/ $(SRCS) $(LIBFT) -o $(NAME)
+	@cc -Wall -Wextra -Werror -I includes/ $(SRCS) $(LIBFT) -o $(NAME)
 
 clean:
-	@$(MAKE) fclean -C ./libft
+	@$(MAKE) fclean -C ./libft > /dev/null
 	@rm -rf $(NAME)
 
 fclean: clean
