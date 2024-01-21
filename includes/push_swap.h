@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:42:27 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/20 13:34:31 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/21 10:45:45 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int			check_args(char **av, int check, int size_list);
 int			array_is_sign(char *string);
 void		free_stack(t_stack *stack_a, t_stack *stack_b, char **av, int ac);
 void		free_split(char **av);
+int			check_all(int ac, char **av, int check, int size_list);
+int			count_args(const char *str, char c);
 
 //************ operations a
 void		sa(t_stack *stack_a);
