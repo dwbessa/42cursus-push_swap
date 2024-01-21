@@ -6,13 +6,13 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:58:13 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/20 13:53:36 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/21 10:57:53 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_repeated(char **av, int check)
+static int	is_repeated(char **av, int check)
 {
 	int	i;
 	int	j;
@@ -39,7 +39,7 @@ int	is_repeated(char **av, int check)
 	return (0);
 }
 
-int	is_sorted(char **av, int check)
+static int	is_sorted(char **av, int check)
 {
 	int		i;
 	int		a;
@@ -65,7 +65,7 @@ int	is_sorted(char **av, int check)
 	return (1);
 }
 
-int	check_digits(char **av, int check)
+static int	check_digits(char **av, int check)
 {
 	int	j;
 	int	count;
@@ -93,7 +93,7 @@ int	check_digits(char **av, int check)
 	return (0);
 }
 
-int	is_integer(char **av, int check)
+static int	is_integer(char **av, int check)
 {
 	int		i;
 	long	a;

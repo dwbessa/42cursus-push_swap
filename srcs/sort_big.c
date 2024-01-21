@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:41:42 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/21 10:31:29 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/21 10:58:20 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static t_stack	*bubble_sort(t_stack *stack_c)
 	return (stack_c);
 }
 
-void	insert_index(t_stack *stack_a)
+static void	insert_index(t_stack *stack_a)
 {
 	t_stack	*stack_c;
 	int		i;
@@ -66,7 +66,7 @@ void	insert_index(t_stack *stack_a)
 	free(stack_c);
 }
 
-int	calculate_num_bits(int num)
+static int	calculate_num_bits(int num)
 {
 	int	num_bits;
 
@@ -79,7 +79,7 @@ int	calculate_num_bits(int num)
 	return (num_bits);
 }
 
-int	find_max(t_stack *stack)
+static int	find_max(t_stack *stack)
 {
 	int	max_num;
 	int	i;
