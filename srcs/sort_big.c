@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:41:42 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/20 13:33:41 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/21 10:31:29 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,10 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b)
 	max_num = find_max(stack_a);
 	num_bits = calculate_num_bits(max_num);
 	bit_position = 0;
-	while (bit_position < num_bits)
+	while (bit_position < num_bits && is_sorted_stack(stack_a))
 	{
 		i = stack_a->top;
-		while (i-- >= 0)
+		while (i-- >= 0 && is_sorted_stack(stack_a))
 		{
 			if ((stack_a->data[stack_a->top] & (1 << bit_position)))
 				pb(stack_b, stack_a);
@@ -118,8 +118,6 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b)
 		}
 		while (stack_b->top >= 0)
 			pa(stack_a, stack_b);
-		if (is_sorted_stack(stack_a) == 0)
-			return ;
 		bit_position++;
 	}
 }

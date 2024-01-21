@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:03:57 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/20 09:30:14 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/21 10:27:47 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ int	is_sorted_stack(t_stack *stack_a)
 {
 	int	i;
 
-	i = stack_a->top;
-	while (i >= 0)
+	i = 0;
+	while (i < stack_a->top)
 	{
-		if (stack_a->data[i] > stack_a->data[i - 1])
+		if (stack_a->data[i] > stack_a->data[i + 1])
 			return (1);
-		i--;
+		i++;
 	}
 	return (0);
 }
