@@ -6,7 +6,7 @@
 /*   By: dbessa <dbessa@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:14 by dbessa            #+#    #+#             */
-/*   Updated: 2024/01/21 10:44:52 by dbessa           ###   ########.fr       */
+/*   Updated: 2024/01/23 12:31:47 by dbessa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	main(int ac, char **av)
 	t_stack	*stack_b;
 
 	check = 0;
-	if (ac == 1 || (ac == 2 && count_args(av[1], ' ') == 1))
+	if (ac == 2 && !av[1][0])
+		return (0);
+	if (ac == 1 || (ac == 2 && (count_args(av[1], ' ') == 1)))
 		return (1 - (check_args(av + 1, check, 1)));
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
